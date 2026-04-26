@@ -29,11 +29,10 @@ jobs:
           name: cyclonedx-sbom
           path: sbom.json
 
-      - name: Scan SBOM with Aqua Trivy
+      - name: Scan container image with Aqua Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: "sbom"
-          input: "sbom.json"
+          image-ref: "temp-target:latest"
           format: "table"
           output: "trivy-report.txt"
           exit-code: "0"
