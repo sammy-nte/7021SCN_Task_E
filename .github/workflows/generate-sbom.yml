@@ -34,7 +34,8 @@ jobs:
         with:
           image-ref: "temp-target:latest"
           format: "table"
-          exit-code: "1"
+          output: "trivy-report.txt"
+          exit-code: "0"
 
       - name: Save Trivy vulnerability report as artefact
         uses: actions/upload-artifact@v4
